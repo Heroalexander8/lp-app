@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 # clase obrero
@@ -24,3 +25,9 @@ class Obrero:
 init = Obrero("Juan", 30, 70, 1.70)
 print(init.nombre, "cuya edad es", init.edad,
       "tiene un imc determinado como -> ", init.imc())
+=======
+nombre = "Carlos"
+edad = 22
+matricul = True
+print("prueba")
+>>>>>>> 2064b6d6f49a9596605c0c06a4113c963b1d28ef
