@@ -56,3 +56,12 @@ class DatabaseManager:
 
     def get_all_prestamos(self):
         return self.fetchall("SELECT * FROM prestamos")
+
+    def delete_autor(self, id):
+        self.execute("DELETE FROM autores WHERE id_autor = ?", (id,))
+
+    def delete_libro(self, id):
+        self.execute("DELETE FROM libro WHERE id_libro = ?", (id,))
+
+    def delete_prestamo(self, id):
+        self.execute("DELETE FROM prestamos WHERE id_prestamo = ?", (id,))
