@@ -1,22 +1,15 @@
 import sqlite3
 from sqlite3 import Error
-import os
-import sys
 
 
 class DatabaseManager:
     def __init__(self, db_file):
-        if hasattr(sys, '_MEIPASS'):
-            base_dir = sys._MEIPASS
-        else:
-
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-
-        db_path = os.path.join(base_dir, './Biblioteca')
-        self.conn = sqlite3.connect(db_path)
-        self.cursor = self.conn.cursor()
+        self.db_file = db_file
+        self.conn = None
+        self.create_connection()
 
     def create_connection(self):
+        db_file = self.db_file
         try:
             self.conn = sqlite3.connect(self.db_file)
         except Error as e:
