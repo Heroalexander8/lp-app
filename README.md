@@ -1,13 +1,11 @@
-# Repositorio para el curso de Lenguajes de Programación I
+# Curso: Lenguajes de Programación I
 ## Integrantes
 - [Angello Zamora]( https://github.com/Anyell0w)
 
 ## Descripción
-Este repositorio contiene los trabajos realizados en el curso de Lenguajes de Programación I, en el cual se aprenden los conceptos básicos de programación en Python.
-
+Este repositorio se usará para mostrar todo lo relacionado con los trabajos del curso
 ## Contenido
 
-\int\frac{1}{x}dx
-
-kk
+### Nuevo
+Subimos el avance del sistema de biblioteca en Python.
 
