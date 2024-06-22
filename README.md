@@ -1,13 +1,13 @@
-# Repositorio para el curso de Lenguajes de Programación I
-## Integrantes
-- [Angello Zamora]( https://github.com/Anyell0w)
+## Curso: Lenguajes de Programación I
+### Integrantes:
+	- Angello Marcelo Zamora Valencia
+	- Alexander Holgin Quispe
+	- Mario Ramirez
 
-## Descripción
-Este repositorio contiene los trabajos realizados en el curso de Lenguajes de Programación I, en el cual se aprenden los conceptos básicos de programación en Python.
+### Descripción del proyecto
+> Este proyecto de sistema de biblioteca fue desarrollado usando tecnologías como Python Tkinter, SQLite. Usando fundamentos de la programación orientada a objetos y una estructura de proyecto que permita la legibilidad, mantenibilidad y buenas prácticas de software recomendadas en clase.
 
-## Contenido
 
-\int\frac{1}{x}dx
 
-kk
+`git clone https://github.com/Anyell0w/lp-app/`
 
