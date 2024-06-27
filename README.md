@@ -8,7 +8,7 @@
 ## Integrantes
 
 - [Angello Zamora](https://github.com/Anyell0w)
-- [Alexander Holgin](https://github.com/Heroalexander8)
+- [Alexander Quispe Holguin](https://github.com/Heroalexander8)
 - [Mario Wilfredo Ramirez Puma](https://github.com/Mario-Wladick)
 
 ## Descripción
