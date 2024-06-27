@@ -37,3 +37,11 @@ class LibroController:
         cursor.execute("DELETE FROM libros WHERE id_libro=?", (id,))
         conn.commit()
         conn.close()
+
+    def buscar_libros(self, titulo):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM libros WHERE titulo LIKE ?", (f"%{titulo}%",))
+        libros = [Libro(*row) for row in cursor.fetchall()]
+        conn.close()
+        return libros
