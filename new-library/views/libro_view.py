@@ -12,6 +12,21 @@ class LibroView:
         self.cargar_libros()
 
     def create_widgets(self):
+
+        self.search_frame = ttk.Frame(self.root)
+        self.search_frame.pack(fill='x')
+
+        self.search_label = ttk.Label(self.search_frame, text="Buscar:")
+        self.search_label.pack(side='left', padx=(5, 0))
+
+        self.search_entry = ttk.Entry(self.search_frame)
+        self.search_entry.pack(side='left', padx=(5, 5), fill='x', expand=True)
+
+        self.search_button = ttk.Button(self.search_frame, text="Buscar", command=self.buscar_libros)
+        self.search_button.pack(side='left')
+
+        
+        
         self.tree = ttk.Treeview(self.root, columns=(
             "ID", "Titulo", "Autor", "Genero", "Año"), show="headings")
         self.tree.heading("ID", text="ID")
@@ -144,3 +159,10 @@ class LibroView:
         self.eliminar_libro_window.destroy()
         self.tree.delete(*self.tree.get_children())
         self.cargar_libros()
+    
+    def buscar_libros(self):
+        titulo = self.search_entry.get()
+        self.tree.delete(*self.tree.get_children())
+        for libro in self.libro_controller.buscar_libros(titulo):
+            self.tree.insert('', 'end', values=(
+                libro.id, libro.titulo, libro.autor, libro.genero, libro.año))

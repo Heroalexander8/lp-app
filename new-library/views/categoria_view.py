@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 from controllers.categoria_controller import CategoriaController
 
+
 class CategoriaView:
     def __init__(self, root, categoria_controller):
         self.root = root

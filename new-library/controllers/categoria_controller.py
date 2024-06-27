@@ -14,7 +14,7 @@ class CategoriaController:
         categorias = [Categoria(*row) for row in cursor.fetchall()]
         conn.close()
         return categorias
-    
+
     def agregar_categoria(self, nombre, descripcion):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -22,7 +22,7 @@ class CategoriaController:
                        (nombre, descripcion))
         conn.commit()
         conn.close()
-    
+
     def actualizar_categoria(self, id, nombre, descripcion):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -30,7 +30,7 @@ class CategoriaController:
                        (nombre, descripcion, id))
         conn.commit()
         conn.close()
-    
+
     def eliminar_categoria(self, id):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()

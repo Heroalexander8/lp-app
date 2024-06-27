@@ -4,11 +4,13 @@ from controllers.libro_controller import LibroController
 from controllers.usuario_controller import UsuarioController
 from controllers.prestamo_controller import PrestamoController
 from controllers.categoria_controller import CategoriaController
+from controllers.rol_controller import RolController
 
 from views.libro_view import LibroView
 from views.usuario_view import UsuarioView
 from views.prestamo_view import PrestamoView
 from views.categoria_view import CategoriaView
+from views.rol_view import RolView
 
 
 
@@ -22,6 +24,7 @@ class MainView:
         self.usuario_controller = UsuarioController('./Biblioteca')
         self.prestamo_controller = PrestamoController('./Biblioteca')
         self.categoria_controller = CategoriaController('./Biblioteca')
+        self.rol_controller = RolController('./Biblioteca')
         self.create_widgets()
 
     def create_widgets(self):
@@ -47,6 +50,11 @@ class MainView:
         self.frame_categorias = ttk.Frame(self.notebook)
         self.notebook.add(self.frame_categorias, text='Categorías')
         self.categoria_view = CategoriaView(self.frame_categorias, self.categoria_controller)
+
+        # Frame y vista de Roles
+        self.frame_roles = ttk.Frame(self.notebook)
+        self.notebook.add(self.frame_roles, text='Roles')
+        self.rol_view = RolView(self.frame_roles, self.rol_controller)
 
 if __name__ == '__main__':
     root = tk.Tk()
