@@ -39,102 +39,108 @@ class LibroView:
                 libro.id, libro.titulo, libro.autor, libro.genero, libro.año))
 
     def nuevo_libro(self):
-        # logica para nuevo libro
-        self.nuevo_libro = tk.Toplevel(self.root)
-        self.nuevo_libro.title("Nuevo Libro")
-        self.nuevo_libro.geometry("400x400")
-        self.nuevo_libro.transient(self.root)
-        self.nuevo_libro.grab_set()
+        self.nuevo_libro_window = tk.Toplevel(self.root)
+        self.nuevo_libro_window.title("Nuevo Libro")
+        self.nuevo_libro_window.geometry("200x200")
 
-        titulo = self.nuevo_libro.Label(self.nuevo_libro, text="Titulo")
-        titulo.pack()
-        self.entry_titulo = self.nuevo_libro.Entry(self.nuevo_libro)
+        self.lbl_titulo = ttk.Label(self.nuevo_libro_window, text="Titulo")
+        self.lbl_titulo.pack()
+        self.entry_titulo = ttk.Entry(self.nuevo_libro_window)
         self.entry_titulo.pack()
 
-        autor = self.nuevo_libro.Label(self.nuevo_libro, text="Autor")
-        autor.pack()
-        self.entry_autor = self.nuevo_libro.Entry(self.nuevo_libro)
+        self.lbl_autor = ttk.Label(self.nuevo_libro_window, text="Autor")
+        self.lbl_autor.pack()
+        self.entry_autor = ttk.Entry(self.nuevo_libro_window)
         self.entry_autor.pack()
 
-        genero = self.nuevo_libro.Label(self.nuevo_libro, text="Genero")
-        genero.pack()
-        self.entry_genero = self.nuevo_libro.Entry(self.nuevo_libro)
+        self.lbl_genero = ttk.Label(self.nuevo_libro_window, text="Genero")
+        self.lbl_genero.pack()
+        self.entry_genero = ttk.Entry(self.nuevo_libro_window)
         self.entry_genero.pack()
 
-        año = self.nuevo_libro.Label(self.nuevo_libro, text="Año")
-        año.pack()
-        self.entry_año = self.nuevo_libro.Entry(self.nuevo_libro)
+        self.lbl_año = ttk.Label(self.nuevo_libro_window, text="Año")
+        self.lbl_año.pack()
+        self.entry_año = ttk.Entry(self.nuevo_libro_window)
         self.entry_año.pack()
 
-        btn_guardar = self.nuevo_libro.Button(
-            self.nuevo_libro, text="Guardar", command=self.guardar_libro)
-        btn_guardar.pack()
-
-    def actualizar_libro(self):
-        # logica para actualizar libro
-        self.actualizar_libro = tk.Toplevel(self.root)
-        self.actualizar_libro.title("Actualizar Libro")
-        self.actualizar_libro.geometry("400x400")
-        self.actualizar_libro.transient(self.root)
-        self.actualizar_libro.grab_set()
-
-        titulo = self.actualizar_libro.Label(
-            self.actualizar_libro, text="Titulo")
-        titulo.pack()
-        self.entry_titulo = self.actualizar_libro.Entry(self.actualizar_libro)
-        self.entry_titulo.pack()
-
-        autor = self.actualizar_libro.Label(
-            self.actualizar_libro, text="Autor")
-        autor.pack()
-        self.entry_autor = self.actualizar_libro.Entry(self.actualizar_libro)
-        self.entry_autor.pack()
-
-        genero = self.actualizar_libro.Label(
-            self.actualizar_libro, text="Genero")
-        genero.pack()
-        self.entry_genero = self.actualizar_libro.Entry(self.actualizar_libro)
-        self.entry_genero.pack()
-
-        año = self.actualizar_libro.Label(self.actualizar_libro, text="Año")
-        año.pack()
-        self.entry_año = self.actualizar_libro.Entry(self.actualizar_libro)
-        self.entry_año.pack()
-
-        btn_actualizar = self.actualizar_libro.Button(
-            self.actualizar_libro, text="Actualizar", command=self.actualizar)
-
-    def eliminar_libro(self):
-        # logica para eliminar libro
-        self.eliminar_libro = tk.Toplevel(self.root)
-        self.eliminar_libro.title("Eliminar Libro")
-        self.eliminar_libro.geometry("400x400")
-        self.eliminar_libro.transient(self.root)
-        self.eliminar_libro.grab_set()
-
-        titulo = self.eliminar_libro.Label(
-            self.eliminar_libro, text="Titulo")
-        titulo.pack()
-        self.entry_titulo = self.eliminar_libro.Entry(self.eliminar_libro)
-        self.entry_titulo.pack()
-
-        btn_eliminar = self.eliminar_libro.Button(
-            self.eliminar_libro, text="Eliminar", command=self.eliminar)
+        self.btn_guardar = ttk.Button(
+            self.nuevo_libro_window, text="Guardar", command=self.guardar_libro)
+        self.btn_guardar.pack()
 
     def guardar_libro(self):
         titulo = self.entry_titulo.get()
         autor = self.entry_autor.get()
         genero = self.entry_genero.get()
         año = self.entry_año.get()
-        self.libro_controller.guardar_libro(titulo, autor, genero, año)
+        self.libro_controller.agregar_libro(titulo, autor, genero, año)
+        self.nuevo_libro_window.destroy()
+        self.tree.delete(*self.tree.get_children())
+        self.cargar_libros()
 
-    def actualizar(self):
+    def actualizar_libro(self):
+        self.actualizar_libro_window = tk.Toplevel(self.root)
+        self.actualizar_libro_window.title("Actualizar Libro")
+        self.actualizar_libro_window.geometry("200x200")
+
+        self.lbl_id = ttk.Label(self.actualizar_libro_window, text="ID")
+        self.lbl_id.pack()
+        self.entry_id = ttk.Entry(self.actualizar_libro_window)
+        self.entry_id.pack()
+
+        self.lbl_titulo = ttk.Label(
+            self.actualizar_libro_window, text="Titulo")
+        self.lbl_titulo.pack()
+        self.entry_titulo = ttk.Entry(self.actualizar_libro_window)
+        self.entry_titulo.pack()
+
+        self.lbl_autor = ttk.Label(self.actualizar_libro_window, text="Autor")
+        self.lbl_autor.pack()
+        self.entry_autor = ttk.Entry(self.actualizar_libro_window)
+        self.entry_autor.pack()
+
+        self.lbl_genero = ttk.Label(
+            self.actualizar_libro_window, text="Genero")
+        self.lbl_genero.pack()
+        self.entry_genero = ttk.Entry(self.actualizar_libro_window)
+        self.entry_genero.pack()
+
+        self.lbl_año = ttk.Label(self.actualizar_libro_window, text="Año")
+        self.lbl_año.pack()
+        self.entry_año = ttk.Entry(self.actualizar_libro_window)
+        self.entry_año.pack()
+
+        self.btn_guardar = ttk.Button(
+            self.actualizar_libro_window, text="Guardar", command=self.guardar_actualizacion)
+        self.btn_guardar.pack()
+
+    def guardar_actualizacion(self):
+        id = self.entry_id.get()
         titulo = self.entry_titulo.get()
         autor = self.entry_autor.get()
         genero = self.entry_genero.get()
         año = self.entry_año.get()
-        self.libro_controller.actualizar_libro(titulo, autor, genero, año)
+        self.libro_controller.actualizar_libro(id, titulo, autor, genero, año)
+        self.actualizar_libro_window.destroy()
+        self.tree.delete(*self.tree.get_children())
+        self.cargar_libros()
+
+    def eliminar_libro(self):
+        self.eliminar_libro_window = tk.Toplevel(self.root)
+        self.eliminar_libro_window.title("Eliminar Libro")
+        self.eliminar_libro_window.geometry("200x200")
+
+        self.lbl_id = ttk.Label(self.eliminar_libro_window, text="ID")
+        self.lbl_id.pack()
+        self.entry_id = ttk.Entry(self.eliminar_libro_window)
+        self.entry_id.pack()
+
+        self.btn_eliminar = ttk.Button(
+            self.eliminar_libro_window, text="Eliminar", command=self.eliminar)
+        self.btn_eliminar.pack()
 
     def eliminar(self):
-        titulo = self.entry_titulo.get()
-        self.libro_controller.eliminar_libro(titulo)
+        id = self.entry_id.get()
+        self.libro_controller.eliminar_libro(id)
+        self.eliminar_libro_window.destroy()
+        self.tree.delete(*self.tree.get_children())
+        self.cargar_libros()
