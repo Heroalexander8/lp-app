@@ -22,8 +22,14 @@ Estructura de la base de datos
 
 Último avance
 ---
-v0.0.1 ./new-library
-![image](https://github.com/Anyell0w/lp-app/assets/75091337/862d8bc7-c770-4114-bc07-eb3531ee58e2)
+v0.0.2 ./new-library
+./controllers/categoria_controller.py
+./views/categoria_view.py
+./models/categoria.py
+" __INIT__ " archives Modified, and main viewer
+
+![image](https://github.com/Anyell0w/lp-app/assets/75091337/899d7e60-ae9b-4e07-9d75-c6df6951d0dd)
+
 
 
 Avance posterior (menos fragmentado) ./"avance biblioteca"
